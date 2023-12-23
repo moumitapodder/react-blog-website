@@ -1,0 +1,14 @@
+ useEffect(() => {
+    axios
+      .get("https://dummyjson.com/products/")
+      .then((res) => {
+        console.log(res);
+        setPost(res.data.products);
+        const arr = [];
+        res.data.products.forEach((items) => {
+          items.images.forEach((item) => {
+            arr.push(item);
+          });
+        });
+        setImageArray(arr);
+      })
